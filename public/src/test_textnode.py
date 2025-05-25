@@ -18,8 +18,8 @@ class TestTextNode(unittest.TestCase):
         self.assertNotEqual(node, node2)
 
     def test_not_eq_texttype(self):
-        node = TextNode("TextNode", TextType.LINKS)
-        node2 = TextNode("TextNode", TextType.IMAGES)
+        node = TextNode("TextNode", TextType.LINK)
+        node2 = TextNode("TextNode", TextType.IMAGE)
         self.assertNotEqual(node, node2)
 
     def test_eq_type(self):

@@ -50,6 +50,7 @@ class TestHTMLNode(unittest.TestCase):
             "HTMLNode(p, Where is Batman, children: None, {'class': 'primary'})",
         )
 
+    # LeafNode tests
     def test_leaf_to_html_p(self):
         node = LeafNode("p", "Hello, world!")
         self.assertEqual(node.to_html(), "<p>Hello, world!</p>")
@@ -75,6 +76,38 @@ class TestHTMLNode(unittest.TestCase):
         self.assertEqual(
             parent_node.to_html(),
             "<div><span><b>grandchild</b></span></div>",
+        )
+
+    # ParentNode tests
+    def test_to_html_no_children(self):
+        parent_node = ParentNode("div", [])
+        self.assertEqual(parent_node.to_html(), "<div></div>")
+
+    def test_to_html_many_children(self):
+        node = ParentNode(
+            "p", 
+            [
+                LeafNode("i", "italic text"), 
+                LeafNode(None, "normal text"), 
+                LeafNode("b", "bold text"), 
+                LeafNode(None, "normal text again")
+            ]
+        )
+        self.assertEqual(node.to_html(), "<p><i>italic text</i>normal text<b>bold text</b>normal text again</p>")
+
+    def test_headings(self):
+        node = ParentNode(
+            "h2",
+            [
+                LeafNode("b", "Bold text"),
+                LeafNode(None, "Normal text"),
+                LeafNode("i", "italic text"),
+                LeafNode(None, "Normal text"),
+            ],
+        )
+        self.assertEqual(
+            node.to_html(),
+            "<h2><b>Bold text</b>Normal text<i>italic text</i>Normal text</h2>",
         )
 
 
