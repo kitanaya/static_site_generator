@@ -32,3 +32,5 @@ def split_nodes_delimiter(old_nodes, delimiter, text_type):
             new_nodes.extend(split_nodes)
         else:
             new_nodes.append(old_node)
+    return new_nodes
+
