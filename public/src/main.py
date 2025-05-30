@@ -4,6 +4,5 @@ def main():
     textnode1 = TextNode("some text", "link", "https://boot.dev")
     print(repr(textnode1))
 
-
 main()
 
