@@ -5,4 +5,3 @@ def main():
     print(repr(textnode1))
 
 main()
-# daily
