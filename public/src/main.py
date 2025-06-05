@@ -5,4 +5,4 @@ def main():
     print(repr(textnode1))
 
 main()
-#keep it up
+#left hand deadge for now
