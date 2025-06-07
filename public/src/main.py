@@ -5,4 +5,4 @@ def main():
     print(repr(textnode1))
 
 main()
-#left hand still kinda deadge
+#left hand still kinda deadge--
